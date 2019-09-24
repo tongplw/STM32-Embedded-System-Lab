@@ -25,6 +25,4 @@ Each TIM uses different clock source frequency according to the table provided b
 
 You can set the clock frequency by going to "Clock Configuration" and place value in the box as shown below.
 
-<p align="center">
-  <img src="https://github.com/tongplw/STM32-Embedded-System-Lab/blob/master/resource/APB1%20APB2.jpg">
-</p>
+![](https://github.com/tongplw/STM32-Embedded-System-Lab/blob/master/resource/APB1%20APB2.jpg)
