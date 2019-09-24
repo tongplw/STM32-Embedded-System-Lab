@@ -9,11 +9,7 @@ You have to download STM32CubeIDE First. Then, select board STM32F4DISCOVERY and
 
 ## TIM timer characteristics
 
-Each TIM uses different clock source according to the table provided below.
-
-You can set them by going to "Clock Configuration"
-
-![]()
+Each TIM uses different clock source frequency according to the table provided below.
 
 | APB1 Domain | APB2 domain |
 | ------------- | ------------- |
@@ -26,3 +22,9 @@ You can set them by going to "Clock Configuration"
 | TIM12 | 		|
 | TIM13 | 		|
 | TIM14 | 		|
+
+You can set the clock frequency by going to "Clock Configuration" and place value in the box as shown below.
+
+<p align="center">
+  <img src="https://github.com/tongplw/STM32-Embedded-System-Lab/blob/master/resource/APB1%20APB2.jpg">
+</p>
