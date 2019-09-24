@@ -43,10 +43,10 @@ sprintf(buffer, "%d \r\n", myValue);
 HAL_UART_Transmit(&huart2, &buffer, strlen(buffer), 1000000);
 ```
 
-### Pulse Width Modulation
+### PWM (Pulse Width Modulation)
 
-* set Clock Source > Internal Clock
-* set Channel > PWM Generation CHX
+* Set Clock Source > Internal Clock
+* Set Channel > PWM Generation CHX
 
 ```C
 // Private variable
@@ -59,9 +59,9 @@ while (1) {
 }
 ```
 
-### Analog to Digital Converter (ADC)
+### ADC (Analog to Digital Converter)
 
-* Analog >> ADC1 >> (Check) IN1
+* Go to Analog >> ADC1 >> (Check) IN1
 
 ```C
 // Private variable
