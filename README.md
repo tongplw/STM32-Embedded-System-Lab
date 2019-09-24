@@ -29,9 +29,12 @@ You can set the clock frequency by going to "Clock Configuration" and place valu
 
 ## Things Might Be Useful
 
-### UART
+### UART (Universal Asynchronous Receiver and Transmitter)
 
 * Connectivity >> USART2 >> Mode (Asynchronous)
+* Connect the wire from RX to TX and from TX to RX
+* Connect the ET-MINI USE-TTL Board to Computer
+* Open Tera Term
 
 ```C
 // Private variable
