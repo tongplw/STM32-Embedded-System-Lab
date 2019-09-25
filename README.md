@@ -1,15 +1,11 @@
 # STM32-Embedded-System-Lab
 This repository was created because the course sucks.
 
----
-
 ## Getting Started
 
 You have to download STM32CubeIDE First. Then, select board STM32F4DISCOVERY and select debugger as J-LINK.
 
 [See Getting Started in Lab1](https://github.com/tongplw/STM32-Embedded-System-Lab/blob/master/Lab1%20Basic%20MCU%20development%20on%20STM32/Lab1-Main.pdf)
-
----
 
 ## TIM timer characteristics
 
@@ -27,11 +23,7 @@ Each TIM uses different clock source frequency according to the table provided b
 | TIM13 |	|
 | TIM14 |	|
 
----
-
 ## Might Be Useful
-
----
 
 ### UART (Universal Asynchronous Receiver and Transmitter)
 
