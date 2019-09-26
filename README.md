@@ -81,7 +81,9 @@ UART_HandleTypeDef huart2;
 int myValue;
 char buffer[20];
 sprintf(buffer, "%d \r\n", myValue);
-HAL_UART_Transmit(&huart2, &buffer, strlen(buffer), 1000000);
+
+if (HAL_UART_Receive(&huart2, &buffer, strlen(buffer), 100000) == HAL_OK) // Receive
+	HAL_UART_Transmit(&huart2, &buffer, strlen(buffer), 100000); // Transmit
 ```
 
 ### PWM (Pulse Width Modulation)
