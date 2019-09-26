@@ -63,6 +63,11 @@ HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);	// toggle pin 12
 ## Interrupt
 
 ### Button interrupt
+#### set up in ioc
+* System Core >> GPIO >> GPIO tab >> PA0 >> External Interrupt Mode with your prefered edge trigger detection
+* System Core >> GPIO >> NVIC tab >> Enable EXTI line0 interrupt
+* System Core >> NVIC >> NVIC tab >> set EXTI line0 interrupt preemptive priority to higher value (Higher number means lower) priotity) 
+* Note : if you can't change the priority value >> change priority group to higher bits
 ```c
 // External interrupt/event controller (EXTI)
 HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pinx);
@@ -95,7 +100,7 @@ char buffer[1];
 // User code
 while(1){
 
-	if (HAL_UART_Receive(&huart2, buffer, sizeof(buffer), HAL_MAX_DELAY) == HAL_OK){ 					
+	if (HAL_UART_Receive(&huart2, buffer, sizeof(buffer), HAL_MAX_DELAY) == HAL_OK){
 		HAL_UART_Transmit(&huart2, buffer, sizeof(buffer), HAL_MAX_DELAY);
 	}
 }
@@ -113,7 +118,7 @@ int myValue;
 char buffer[20];
 
 while(1){
-	
+
 	// sprintf(char *, char format, arguments...)
 	sprintf(buffer, "%d \r\n", myValue);	
 
