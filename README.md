@@ -25,6 +25,23 @@ Each TIM uses different clock source frequency according to the table provided b
 
 ## Might Be Useful
 
+### GPIOx Code Pin
+
+#### LED Light Pin
+
+| LED | GPIOD_PD |
+| ------------- | ------------- |
+| Green(LD4)  |  PD12 	|
+| Orange(LD3)  |  PD13	|
+| Red(LD5)  | 	PD14 	|
+| Blue(LD6)  | PD15 |
+
+#### User Pin
+
+| Buttom | GPIOA_PA |
+| ------------- | ------------- |
+| User button  |  PA0 |
+
 ### UART (Universal Asynchronous Receiver and Transmitter)
 
 * Connectivity >> USART2 >> Mode (Asynchronous)
@@ -35,6 +52,7 @@ Each TIM uses different clock source frequency according to the table provided b
 * ***Very fricking important:*** set serial port to **115200**
 
 #### Useful statement to use UART:
+
 ```C
 // Private variable
 UART_HandleTypeDef huart2;
@@ -81,22 +99,20 @@ while (1) {
 }
 ```
 
-### GPIO LED light Pinn
-| LED | PD |
-| ------------- | ------------- |
-| Green(LD4)  |  PD12 	|
-| Orange(LD3)  |  PD13	|
-| Red(LD5)  | 	PD14 	|
-| Blue(LD6)  | PD15 |
-
 #### Useful function in HAL library for GPIOs
 
-x in GPIOx for A,B,C,D eg. "GPIOA", "GPIOD"
+x in GPIOx for A, B, C, D eg. "GPIOA", "GPIOD"
 
-| Description | Function |  Example  |
-| ------------- | ------------- | ------------- |
-| Read  pin  | `HAL_GPIO_ReadPin(GPIOx,Pin);`  | `HAL_GPIO_ReadPin(GPIOD, PD12); # read from PD12` |
-| Write pin | `HAL_GPIO_WritePin(GPIOx, Pin, GPIO_PIN_SET/GPIO_PIN_RESET);` | `HAL_GPIO_WritePin(GPIOD, PD12, GPIO_PIN_SET); # turn on light` |  
-| Toggle on/off pin  | `HAL_GPIO_TogglePin(GPIOx, Pin);` | `HAL_GPIO_TogglePin(GPIOD, PD12);` |
+```C
+// Read pin
+// HAL_GPIO_ReadPin(GPIOx, Pin);
+HAL_GPIO_ReadPin(GPIOD, PD12); // read from PD12
 
-###
+// Write pin
+// HAL_GPIO_WritePin(GPIOx, Pin, GPIO_PIN_SET/GPIO_PIN_RESET);
+HAL_GPIO_WritePin(GPIOD, PD12, GPIO_PIN_SET); //turn on light
+
+// Toggle on/off pin
+// HAL_GPIO_TogglePin(GPIOx, Pin);
+HAL_GPIO_TogglePin(GPIOD, PD12);
+```
