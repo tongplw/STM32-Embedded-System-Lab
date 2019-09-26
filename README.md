@@ -1,5 +1,19 @@
 # STM32-Embedded-System-Lab
-This repository was created because the course sucks.
+This repository was created because the course ~~is so interesting~~ sucks.
+
+## Table of contents
+* [Getting Started](##Getting-Started)
+* [TIM timer characteristics](##TIM-timer-characteristics)
+* [GPIOx PinCode](##GPIOx-PinCode)
+	* LED Light Pin
+	* Button Pin
+	* Useful function in HAL library for GPIOs
+* [Interrupt](##Interrupt)
+* [UART](##UART)
+	* Set up your ioc
+	* Useful statement to use with UART
+* [PWM](##PWM)
+* [ADC](##ADC)
 
 ## Getting Started
 
@@ -34,7 +48,7 @@ Each TIM uses different clock source frequency according to the table provided b
 | Red (LD5)  | 	PD14 	|
 | Blue (LD6)  | PD15 |
 
-### User Pin
+### Button Pin
 
 | Button | GPIOA_PA |
 | ------------- | ------------- |
@@ -66,28 +80,31 @@ HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);	// toggle pin 12
 #### set up in ioc
 * System Core >> GPIO >> GPIO tab >> PA0 >> External Interrupt Mode with your prefered edge trigger detection
 * System Core >> GPIO >> NVIC tab >> Enable EXTI line0 interrupt
-* System Core >> NVIC >> NVIC tab >> set EXTI line0 interrupt preemptive priority to higher value (Higher number means lower) priotity) 
-* Note : if you can't change the priority value >> change priority group to higher bits
+* System Core >> NVIC >> NVIC tab >> set EXTI line0 interrupt preemptive priority to higher value (Higher number means lower priotity) 
+* Note : if you can't change the priority value, change priority group to higher bits
+
 ```c
+// Write this function in your main.c 
 // External interrupt/event controller (EXTI)
-HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pinx);
+HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pinx){
+	// do something
+}
 ```
 
-## Useful Tips & Tricks
 
+## UART
+**Universal Asynchronous Receiver and Transmitter**
 
-### UART (Universal Asynchronous Receiver and Transmitter)
-
-#### Set up your ioc
+### Set up your ioc
 
 * Connectivity >> USART2 >> Mode (Asynchronous)
 * Connect the wire from RX (UART) to TX (Board) and from TX (UART) to RX (Board)
 * Connect the ET-MINI USE-TTL Board to Computer
 * Open terminal (e.g. Tera Term)
 * [Download Tera Term](https://osdn.net/projects/ttssh2/releases/)
-* ***Very fricking important:*** set serial port to **115200** in Tera Term
+* **_Very fricking important:_** set serial port to **115200** in Tera Term
 
-#### Useful statement to use with UART:
+### Useful statement to use with UART:
 
 **Receive and print char one by one to terminal:**
 ```c
@@ -126,7 +143,8 @@ while(1){
 }
 ```
 
-### PWM (Pulse Width Modulation)
+## PWM 
+**Pulse Width Modulation**
 
 * Set Clock Source > Internal Clock
 * Set Channel > PWM Generation CHX
@@ -142,7 +160,8 @@ while (1) {
 }
 ```
 
-### ADC (Analog to Digital Converter)
+## ADC 
+**Analog to Digital Converter**
 
 * Select your prefered Pin (e.g. PC3, PC2) and set mode to ADCxIN_x (e.g. ADC1_IN13)
 * Go to Analog >> ADCx >> check INx
