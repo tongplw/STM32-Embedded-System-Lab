@@ -2,18 +2,18 @@
 This repository was created because the course ~~is so interesting~~ sucks.
 
 ## Table of contents
-* [Getting Started](##Getting-Started)
-* [TIM timer characteristics](##TIM-timer-characteristics)
-* [GPIOx PinCode](##GPIOx-PinCode)
+* [Getting Started](#getting-started)
+* [TIM timer characteristics](#tim-timer-characteristics)
+* [GPIOx PinCode](#gpiox-pincode)
 	* LED Light Pin
 	* Button Pin
 	* Useful function in HAL library for GPIOs
-* [Interrupt](##Interrupt)
-* [UART](##UART)
+* [Interrupt](#interrupt)
+* [UART](#uart)
 	* Set up your ioc
 	* Useful statement to use with UART
-* [PWM](##PWM)
-* [ADC](##ADC)
+* [PWM](#pwm)
+* [ADC](#adc)
 
 ## Getting Started
 
