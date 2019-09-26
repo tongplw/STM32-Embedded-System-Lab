@@ -23,11 +23,9 @@ Each TIM uses different clock source frequency according to the table provided b
 | TIM13 |	|
 | TIM14 |	|
 
-## Might Be Useful
+## GPIOx PinCode
 
-### GPIOx Code Pin
-
-#### LED Light Pin
+### LED Light Pin
 
 | LED | GPIOD_PD |
 | ------------- | ------------- |
@@ -36,14 +34,14 @@ Each TIM uses different clock source frequency according to the table provided b
 | Red(LD5)  | 	PD14 	|
 | Blue(LD6)  | PD15 |
 
-#### User Pin
+### User Pin
 
-| Buttom | GPIOA_PA |
+| Button | GPIOA_PA |
 | ------------- | ------------- |
 | User button  |  PA0 |
 
 
-#### Useful function in HAL library for GPIOs
+### Useful function in HAL library for GPIOs
 
 x in GPIOx for A, B, C, D eg. "GPIOA", "GPIOD"
 
@@ -60,6 +58,9 @@ HAL_GPIO_WritePin(GPIOD, PD12, GPIO_PIN_SET); //turn on light
 // HAL_GPIO_TogglePin(GPIOx, Pin);
 HAL_GPIO_TogglePin(GPIOD, PD12);
 ```
+
+## Might Be Useful
+
 
 ### UART (Universal Asynchronous Receiver and Transmitter)
 
