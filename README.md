@@ -42,6 +42,25 @@ Each TIM uses different clock source frequency according to the table provided b
 | ------------- | ------------- |
 | User button  |  PA0 |
 
+
+#### Useful function in HAL library for GPIOs
+
+x in GPIOx for A, B, C, D eg. "GPIOA", "GPIOD"
+
+```C
+// Read pin
+// HAL_GPIO_ReadPin(GPIOx, Pin);
+HAL_GPIO_ReadPin(GPIOD, PD12); // read from PD12
+
+// Write pin
+// HAL_GPIO_WritePin(GPIOx, Pin, GPIO_PIN_SET/GPIO_PIN_RESET);
+HAL_GPIO_WritePin(GPIOD, PD12, GPIO_PIN_SET); //turn on light
+
+// Toggle on/off pin
+// HAL_GPIO_TogglePin(GPIOx, Pin);
+HAL_GPIO_TogglePin(GPIOD, PD12);
+```
+
 ### UART (Universal Asynchronous Receiver and Transmitter)
 
 * Connectivity >> USART2 >> Mode (Asynchronous)
@@ -97,22 +116,4 @@ while (1) {
 		myVariable = HAL_ADC_GetValue(&hadc1);
     	}
 }
-```
-
-#### Useful function in HAL library for GPIOs
-
-x in GPIOx for A, B, C, D eg. "GPIOA", "GPIOD"
-
-```C
-// Read pin
-// HAL_GPIO_ReadPin(GPIOx, Pin);
-HAL_GPIO_ReadPin(GPIOD, PD12); // read from PD12
-
-// Write pin
-// HAL_GPIO_WritePin(GPIOx, Pin, GPIO_PIN_SET/GPIO_PIN_RESET);
-HAL_GPIO_WritePin(GPIOD, PD12, GPIO_PIN_SET); //turn on light
-
-// Toggle on/off pin
-// HAL_GPIO_TogglePin(GPIOx, Pin);
-HAL_GPIO_TogglePin(GPIOD, PD12);
 ```
