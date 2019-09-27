@@ -158,9 +158,9 @@ HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pinx){
 
 ## Timer
 
-
-$$TIM_{UpdateFrequency}(Hz) = \frac{Clock}{(PSC-1)\times(ARR-1)}$$
-
+<p align="center">
+  <img width="400" height="50" src="https://github.com/tongplw/STM32-Embedded-System-Lab/blob/master/res/formola.jpg">
+</p>
 
 
 ## PWM 
