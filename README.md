@@ -162,6 +162,11 @@ HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pinx){
   <img width="400" height="50" src="https://github.com/tongplw/STM32-Embedded-System-Lab/blob/master/res/formola.jpg">
 </p>
 
+* TIMx->CNT - Clock Counter
+* TIMx->PSC - Prescaler Value
+* TIMx->ARR - Period Value
+* TIMx->CCR1 - PWM for Channel 1
+
 
 ## PWM 
 **Pulse Width Modulation**
