@@ -82,7 +82,7 @@ HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);	// toggle pin 12
 * System Core >> GPIO >> NVIC tab >> Enable EXTI line0 interrupt
 * System Core >> NVIC >> NVIC tab >> set EXTI line0 interrupt preemptive priority to higher value (Higher number means lower priotity) 
 * Note : if you can't change the priority value, change priority group to higher bits
-
+#### interrupt callback function
 ```c
 // Write this function in your main.c 
 // External interrupt/event controller (EXTI)
@@ -90,6 +90,11 @@ HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pinx){
 	// do something
 }
 ```
+
+### Timer interrupt
+#### set up ioc
+* 
+
 
 
 ## UART
