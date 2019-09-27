@@ -2,18 +2,26 @@
 This repository was created because the course ~~is so interesting~~ sucks.
 
 ## Table of contents
-* [Getting Started](#getting-started)
-* [TIM timer characteristics](#tim-timer-characteristics)
-* [GPIOx PinCode](#gpiox-pincode)
-	* LED Light Pin
-	* Button Pin
-	* Useful function in HAL library for GPIOs
-* [Interrupt](#interrupt)
-* [UART](#uart)
-	* Set up your ioc
-	* Useful statement to use with UART
-* [PWM](#pwm)
-* [ADC](#adc)
+- [STM32-Embedded-System-Lab](#stm32-embedded-system-lab)
+	- [Table of contents](#table-of-contents)
+	- [Getting Started](#getting-started)
+	- [TIM timer characteristics](#tim-timer-characteristics)
+	- [GPIOx PinCode](#gpiox-pincode)
+		- [LED Light Pin](#led-light-pin)
+		- [Button Pin](#button-pin)
+		- [Useful function in HAL library for GPIOs](#useful-function-in-hal-library-for-gpios)
+	- [UART](#uart)
+		- [Set up your ioc](#set-up-your-ioc)
+		- [Useful statement to use with UART:](#useful-statement-to-use-with-uart)
+	- [Interrupt](#interrupt)
+		- [Button interrupt](#button-interrupt)
+			- [set up in ioc](#set-up-in-ioc)
+			- [interrupt callback function](#interrupt-callback-function)
+		- [Timer interrupt](#timer-interrupt)
+			- [set up ioc](#set-up-ioc)
+	- [Timer](#timer)
+	- [PWM](#pwm)
+	- [ADC](#adc)
 
 ## Getting Started
 
@@ -74,26 +82,6 @@ HAL_GPIO_WritePin(GPIOD, GPIO_PIN_12, GPIO_PIN_SET); //turn on light
 HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);	// toggle pin 12
 ```
 
-## Interrupt
-
-### Button interrupt
-#### set up in ioc
-* System Core >> GPIO >> GPIO tab >> PA0 >> External Interrupt Mode with your prefered edge trigger detection
-* System Core >> GPIO >> NVIC tab >> Enable EXTI line0 interrupt
-* System Core >> NVIC >> NVIC tab >> set EXTI line0 interrupt preemptive priority to higher value (Higher number means lower priotity) 
-* Note : if you can't change the priority value, change priority group to higher bits
-#### interrupt callback function
-```c
-// Write this function in your main.c 
-// External interrupt/event controller (EXTI)
-HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pinx){
-	// do something
-}
-```
-
-### Timer interrupt
-#### set up ioc
-* 
 
 
 
@@ -147,6 +135,33 @@ while(1){
 	HAL_UART_Transmit(&huart2, &buffer, strlen(buffer), HAL_MAX_DELAY); // Transmit
 }
 ```
+## Interrupt
+
+### Button interrupt
+#### set up in ioc
+* System Core >> GPIO >> GPIO tab >> PA0 >> External Interrupt Mode with your prefered edge trigger detection
+* System Core >> GPIO >> NVIC tab >> Enable EXTI line0 interrupt
+* System Core >> NVIC >> NVIC tab >> set EXTI line0 interrupt preemptive priority to higher value (Higher number means lower priotity) 
+* Note : if you can't change the priority value, change priority group to higher bits
+#### interrupt callback function
+```c
+// Write this function in your main.c 
+// External interrupt/event controller (EXTI)
+HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pinx){
+	// do something
+}
+```
+
+### Timer interrupt
+#### set up ioc
+* 
+
+## Timer
+
+
+$$TIM_{UpdateFrequency}(Hz) = \frac{Clock}{(PSC-1)\times(ARR-1)}.$$
+
+
 
 ## PWM 
 **Pulse Width Modulation**
