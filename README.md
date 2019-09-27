@@ -22,6 +22,7 @@ This repository was created because the course ~~is so interesting~~ sucks.
 	- [Timer](#timer)
 	- [PWM](#pwm)
 	- [ADC](#adc)
+- [Example of some labs](https://github.com/tongplw/STM32-Embedded-System-Lab/blob/master/res/README.md)
 
 ## Getting Started
 
