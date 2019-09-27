@@ -159,7 +159,7 @@ HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pinx){
 ## Timer
 
 
-$$TIM_{UpdateFrequency}(Hz) = \frac{Clock}{(PSC-1)\times(ARR-1)}.$$
+$$TIM_{UpdateFrequency}(Hz) = \frac{Clock}{(PSC-1)\times(ARR-1)}$$
 
 
 
