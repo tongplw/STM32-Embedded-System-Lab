@@ -1,4 +1,4 @@
-# Example of the labs
+# Example of some labs
 
 ## Lab2-1
 
