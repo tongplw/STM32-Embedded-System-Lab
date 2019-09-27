@@ -159,7 +159,7 @@ HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pinx){
 ## Timer
 
 <p align="center">
-  <img width="400" height="50" src="https://github.com/tongplw/STM32-Embedded-System-Lab/blob/master/res/formola.jpg">
+  <img width="440" height="64" src="https://github.com/tongplw/STM32-Embedded-System-Lab/blob/master/res/formola.jpg">
 </p>
 
 * TIMx->CNT - Clock Counter
