@@ -159,7 +159,7 @@ HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pinx){
 
 ### Timer interrupt
 #### set up ioc
-* Initiate Timer and setup paremeters
+* Initiate Timer and setup paremeters ([see Timer](#timer))
 * Enable TIM3 Global Interrupt
 
 ```c
