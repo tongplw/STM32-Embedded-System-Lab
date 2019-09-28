@@ -183,7 +183,7 @@ int main(void)
 ## Timer
 
 <p align="center">
-  <img width="440" height="64" src="https://github.com/tongplw/STM32-Embedded-System-Lab/blob/master/res/formola.jpg">
+  <img width="440" height="64" src="https://github.com/tongplw/STM32-Embedded-System-Lab/blob/master/res/formula.jpg">
 </p>
 
 * TIMx->CNT - Clock Counter
