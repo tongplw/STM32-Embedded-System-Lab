@@ -138,7 +138,7 @@ while(1){
 ```
 ## Interrupt
 
-### Button interrupt
+### External interrupt via Button
 #### set up in ioc
 * System Core >> GPIO >> GPIO tab >> PA0 >> External Interrupt Mode with your prefered edge trigger detection
 * System Core >> GPIO >> NVIC tab >> Enable EXTI line0 interrupt
@@ -159,7 +159,24 @@ HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pinx){
 
 ### Timer interrupt
 #### set up ioc
-* 
+* Initiate Timer and setup paremeters
+* Enable TIM3 Global Interrupt
+
+```c
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
+	if (htim->Instance == TIM2) HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_14);
+	if (htim->Instance == TIM3) HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);
+}
+
+int main(void)
+{
+	// Init()
+	
+	HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
+  	HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
+  	HAL_TIM_Base_Start_IT(&htim2);
+  	HAL_TIM_Base_Start_IT(&htim3);
+```
 
 ## Timer
 
