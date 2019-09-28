@@ -150,6 +150,10 @@ while(1){
 // External interrupt/event controller (EXTI)
 HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pinx){
 	// do something
+	// HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_15);
+	// while (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_0)); // Debounce
+    	// HAL_Delay(100);
+	// __HAL_GPIO_EXTI_CLEAR_IT(GPIO_Pin);
 }
 ```
 
