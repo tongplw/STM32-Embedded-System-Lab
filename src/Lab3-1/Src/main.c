@@ -79,7 +79,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
 	else if (state == 1) state = 2;
 	else if (state == 2) state = 0;
     while (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_0));
-    HAL_TIM_PWM_Init(&htim4);
+    HAL_TIM_PWM_Init(&htim4); /*may use TIM->CNT to force cnt to the end-point(max arr of previous period) of timer period instead of this line*/
 	HAL_Delay(100);
 	__HAL_GPIO_EXTI_CLEAR_IT(GPIO_Pin);
 }
