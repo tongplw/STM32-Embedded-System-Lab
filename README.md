@@ -81,6 +81,10 @@ HAL_GPIO_WritePin(GPIOD, GPIO_PIN_12, GPIO_PIN_SET); //turn on light
 // Toggle on/off pin
 // HAL_GPIO_TogglePin(GPIOx, GPIO_PIN_xx);
 HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);	// toggle pin 12
+
+// Delay
+// HAL_Delay(uint32_t Delay);
+HAL_Delay(1000); // delay for 1000 millisecond or 1 second
 ```
 
 
