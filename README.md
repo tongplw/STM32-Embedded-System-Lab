@@ -87,7 +87,21 @@ HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);	// toggle pin 12
 HAL_Delay(1000); // delay for 1000 millisecond or 1 second
 ```
 
+## GPIO Register
 
+| Register | Responsibility |
+----------------|--------------
+| Port Mode Register ***(MODER)*** | configure the I/O direction mode (input/output/alternate/analog) |
+| Port Mode Register ***(MODER)*** | configure the I/O direction mode (input/output/alternate/analog) |
+| Output Type Register ***(TYPER)*** | configure the output type of the I/O port (push-pull/open-drain) |
+| Output Speed Register ***(OSPEEDR)*** | configure the I/O output speed (2/25/50/100 MHz) |
+| Pull-Up/Pull-Down Register ***(PUPDR)*** | configure the I/O pull-up or pull-down (no pull-up, pull-down/pull-up/pull-down) |
+| Input Data Register ***(IDR)*** | contain the input value of the corresponding I/O port |
+| Output Data Register ***(ODR)*** | can be read and written by software (ODR bits can be individually set and reset by writing to the BSRR) |
+| Bit Set/Reset Register ***(BSRR)*** | can be used for atomic bit set/reset |
+| Configuration Lock Register ***(LCKR)*** | used to lock the configuration of the port bits when a correct write sequence is applied to bit 16 |
+| Alternate Function Low Register ***(AFRL)*** | configure alternate function I/Os |
+| Alternate Function High Register ***(AFRH)*** | configure alternate function I/Os |
 
 
 ## UART
