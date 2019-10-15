@@ -250,6 +250,38 @@ while (1) {
 }
 ```
 
+## SPI
+
+#### Getting Started
+* Connectivity >> SPI2
+	* For transmitter select `Transmit Only Master`
+	* For receiver select `Receive Only Slave`
+* Connect `SCK` and `MOSI`
+
+``` C
+// Transmitter
+HAL_SPI_Transmit(&hspi1, "a", 1, HAL_MAX_DELAY);
+
+// Receiver
+HAL_SPI_Receive(&hspi1, "a", 1, HAL_MAX_DELAY);
+```
+
+## I2C
+
+#### Getting Started
+* Connectivity >> I2C1
+	* Select `I2C`
+* Connect `SLC` and `SDA`
+* Set some `{address}`
+
+``` C
+// Transmitter
+HAL_I2C_Master_Transmit(&hi2c1, {address}, "a", 1, HAL_MAX_DELAY);
+
+// Receiver
+HAL_I2C_Slave_Receive(&hi2c1, {address}, "a", 1, HAL_MAX_DELAY);
+```
+
 ## Acknowledgement
 
 - Thank you for all of contributors including me ([Tong](https://github.com/tongplw), [Pin](https://github.com/BackgroundBoy), [Charn](https://github.com/ctkgit) and [Terk](https://github.com/terktanac)).
