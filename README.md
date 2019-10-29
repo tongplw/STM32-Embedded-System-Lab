@@ -23,6 +23,7 @@ This repository was created because the course ~~is so interesting~~ sucks.
 	- [Timer](#timer)
 	- [PWM](#pwm)
 	- [ADC](#adc)
+	- [RTOS](#rtos)
 - [Example of some labs](https://github.com/tongplw/STM32-Embedded-System-Lab/blob/master/example.md)
 
 ## Getting Started
@@ -281,6 +282,67 @@ HAL_I2C_Master_Transmit(&hi2c1, {address}, "a", 1, HAL_MAX_DELAY);
 // Receiver
 HAL_I2C_Slave_Receive(&hi2c1, {address}, "a", 1, HAL_MAX_DELAY);
 ```
+
+## RTOS
+
+- Read through [this link](https://os.mbed.com/handbook/CMSIS-RTOS) for additional infomation!
+- Middleware >> FREERTOS >> Interface (CMSIS_1)
+
+``` C
+...
+void StartDefaultTask(void const * argument);
+...
+
+int main(void)
+{
+	...
+	osThreadDef(defaultTask, StartDefaultTask, osPriorityNormal, 0, 128);
+	defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
+	osKernelStart();
+	...
+	while (1) { ... }
+}
+
+void StartDefaultTask(void const * argument)
+{
+	/* USER CODE BEGIN */ 
+	
+	/* USER CODE END */ 
+}
+```
+
+### RTOS Timer
+
+- Config parameters >> software timer definitions >> USE_TIMERS (Enabled)
+- Timers and Semaphores >> Timers >> Add
+
+``` C
+...
+osTimerId myTimer01Handle;
+void Callback01(void const * argument);
+...
+
+int main(void)
+{
+	...
+	osTimerDef(myTimer01, Callback01);
+	myTimer01Handle = osTimerCreate(osTimer(myTimer01), osTimerPeriodic, NULL);
+	osTimerStart(myTimer01Handle, 25);
+	...
+    while (1) { ... }
+}
+
+void Callback01(void const * argument)
+{
+  /* USER CODE BEGIN Callback01 */
+
+  /* USER CODE END Callback01 */
+}
+```
+
+### TODO: Semaphore
+### TODO: Message Queue/Mailbox
+
 
 ## Acknowledgement
 
