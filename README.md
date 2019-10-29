@@ -251,9 +251,10 @@ while (1) {
 }
 ```
 
-## SPI
+## Serial Communication Interface
 
-#### Getting Started
+### SPI
+
 * Connectivity >> SPI2
 	* For transmitter select `Transmit Only Master`
 	* For receiver select `Receive Only Slave`
@@ -267,9 +268,8 @@ HAL_SPI_Transmit(&hspi1, "a", 1, HAL_MAX_DELAY);
 HAL_SPI_Receive(&hspi1, "a", 1, HAL_MAX_DELAY);
 ```
 
-## I2C
+### I2C
 
-#### Getting Started
 * Connectivity >> I2C1
 	* Select `I2C`
 * Connect `SLC` and `SDA`
