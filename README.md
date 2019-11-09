@@ -105,6 +105,37 @@ HAL_Delay(1000); // delay for 1000 millisecond or 1 second
 | Alternate Function Low Register ***(AFRL)*** | configure alternate function I/Os |
 | Alternate Function High Register ***(AFRH)*** | configure alternate function I/Os |
 
+## Debounce
+
+```C
+int state = 0;
+int push = 0;
+
+if (state == 0) {
+	
+	...
+
+	if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_0) == HAL_OK && !push) {
+		push = 1;
+	}
+	if (!HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_0) == HAL_OK && push) {
+		push = 0;
+		state = 1;
+	}
+} else if (state == 1) {
+	
+	...
+
+	
+	if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_0) == HAL_OK && !push) {
+		push = 1;
+	}
+	if (!HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_0) == HAL_OK && push) {
+		push = 0;
+		state = 0;
+	}
+}
+```
 
 ## UART
 **Universal Asynchronous Receiver and Transmitter**
@@ -172,7 +203,7 @@ while(1){
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
 	
 	... // do something
-	
+
 	HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_15);
 	while (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_0)); // Debounce
     	HAL_Delay(100);
