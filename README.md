@@ -15,7 +15,7 @@ This repository was created because the course ~~is so interesting~~ sucks.
 		- [Set up your ioc](#set-up-your-ioc)
 		- [Useful statement to use with UART:](#useful-statement-to-use-with-uart)
 	- [Interrupt](#interrupt)
-		- [Button interrupt](#button-interrupt)
+		- [Button interrupt](#External-interrupt-via-Button)
 			- [set up in ioc](#set-up-in-ioc)
 			- [interrupt callback function](#interrupt-callback-function)
 		- [Timer interrupt](#timer-interrupt)
