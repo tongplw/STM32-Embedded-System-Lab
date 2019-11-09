@@ -125,11 +125,12 @@ HAL_Delay(1000); // delay for 1000 millisecond or 1 second
 // Private variable
 UART_HandleTypeDef huart2;	// program generated
 
-// User variable
-char buffer[1];
 
 // User code
 while(1){
+
+	// User variable
+	char buffer[1];
 
 	if (HAL_UART_Receive(&huart2, buffer, sizeof(buffer), HAL_MAX_DELAY) == HAL_OK){
 		HAL_UART_Transmit(&huart2, buffer, sizeof(buffer), HAL_MAX_DELAY);
