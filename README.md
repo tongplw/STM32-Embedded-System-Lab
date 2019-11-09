@@ -222,8 +222,9 @@ int main(void)
 // Private variable
 TIM_HandleTypeDef htim4; // program generated
 
-
+// Don't forget to write this start method
 HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_3);
+
 while (1) {
 	TIM4->CCR3 = myPulse;
 }
