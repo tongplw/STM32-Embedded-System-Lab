@@ -220,11 +220,11 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
 ```
 
 ### Timer interrupt
-#### Set Up ioc (In this case, we use TIM3)
-* TIM3 >> Set up PWM >> ([see PWM](#pwm))
-* TIM3 >> Parameter Setting >> Set up parameter([see Timer](#timer))
-* TIM3 >> auto-reload preload >> Enable
-* TIM3 >> NVIC Settings >> Enable TIM3 Global Interrupt or System Core >> NVIC >> Enable TIM3 Global Interrupt
+#### Set Up ioc
+* TIMx >> Set up PWM >> ([see PWM](#pwm))
+* TIMx >> Parameter Setting >> Set up parameter([see Timer](#timer))
+* TIMx >> auto-reload preload >> Enable
+* TIMx >> NVIC Settings >> Enable TIM3 Global Interrupt or System Core >> NVIC >> Enable TIMx Global Interrupt
 
 ```c
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
