@@ -375,7 +375,14 @@ void Callback01(void const * argument)
 }
 ```
 
-### TODO: Semaphore
+### Semaphore
+```C
+osSemaphoreWait(myBinarySem01Handle, 10000);
+
+osSemaphoreRelease(myBinarySem01Handle);
+```
+
+
 ### TODO: Message Queue/Mailbox
 
 
