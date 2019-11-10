@@ -136,6 +136,14 @@ if (state == 0) {
 	}
 }
 ```
+* Another way
+```C
+if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_0)){
+		while (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_0)) {
+
+		}
+}
+```
 
 ## UART
 **Universal Asynchronous Receiver and Transmitter**
@@ -212,9 +220,11 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
 ```
 
 ### Timer interrupt
-#### set up ioc
-* Initiate Timer and setup paremeters ([see Timer](#timer))
-* Enable TIM3 Global Interrupt
+#### Set Up ioc (In this case, we use TIM3)
+* TIM3 >> Set up PWM >> ([see PWM](#pwm))
+* TIM3 >> Parameter Setting >> Set up parameter([see Timer](#timer))
+* TIM3 >> auto-reload preload >> Enable
+* TIM3 >> NVIC Settings >> Enable TIM3 Global Interrupt or System Core >> NVIC >> Enable TIM3 Global Interrupt
 
 ```c
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
@@ -240,17 +250,19 @@ int main(void)
   <img width="440" height="64" src="https://github.com/tongplw/STM32-Embedded-System-Lab/blob/master/res/formula.jpg">
 </p>
 
-* TIMx->CNT - Clock Counter
-* TIMx->PSC - Prescaler Value
-* TIMx->ARR - Period Value
-* TIMx->CCR1 - PWM for Channel 1
+* TIMx->CNT - Clock Counter (For ioc: Clock Configuration >> APB1 Timer clocks)
+* TIMx->PSC - Prescaler Value (For ioc: TIMx >> Parameter Setting >> Prescaler)
+* TIMx->ARR - Period Value (For ioc: TIMx >> Parameter Setting >> Counter Period)
+* TIMx->CCRx - PWM for Channel x (For ioc: TIMx >> Parameter Setting >> PWM Generation Channel x >> Pulse)
+* Tips : If you set APB1 Timer clocks = 16 MHz, Prescaler = 15999, you will be able to set Counter Period and Pulse in millisec.
 
+### 
 
 ## PWM 
 **Pulse Width Modulation**
 
-* Set Clock Source > Internal Clock
-* Set Channel > PWM Generation CHX
+* TIMx >> Clock Source >> Internal Clock
+* TIMx >> Channelx >> PWM Generation CHx
 
 ```C
 // Private variable
