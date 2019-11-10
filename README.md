@@ -136,6 +136,14 @@ if (state == 0) {
 	}
 }
 ```
+* Another way
+```C
+if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_0)){
+	while (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_0)) {
+
+	}
+}
+```
 
 ## UART
 **Universal Asynchronous Receiver and Transmitter**
@@ -191,12 +199,12 @@ while(1){
 ## Interrupt
 
 ### External interrupt via Button
-#### set up in ioc
+#### Set up in ioc
 * System Core >> GPIO >> GPIO tab >> PA0 >> External Interrupt Mode with your prefered edge trigger detection
 * System Core >> GPIO >> NVIC tab >> Enable EXTI line0 interrupt
 * System Core >> NVIC >> NVIC tab >> set EXTI line0 interrupt preemptive priority to higher value (Higher number means lower priotity) 
 * Note : if you can't change the priority value, change priority group to higher bits
-#### interrupt callback function
+#### Interrupt callback function
 ```c
 // Write this function in your main.c 
 // External interrupt/event controller (EXTI)
@@ -212,9 +220,11 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
 ```
 
 ### Timer interrupt
-#### set up ioc
-* Initiate Timer and setup paremeters ([see Timer](#timer))
-* Enable TIM3 Global Interrupt
+#### Set up ioc
+* TIMx >> Set up PWM >> ([see PWM](#pwm))
+* TIMx >> Parameter Setting >> Set up parameter([see Timer](#timer))
+* TIMx >> auto-reload preload >> Enable
+* TIMx >> NVIC Settings >> Enable TIM3 Global Interrupt or System Core >> NVIC >> Enable TIMx Global Interrupt
 
 ```c
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
@@ -233,6 +243,12 @@ int main(void)
 	while (1) { ... }
 }
 ```
+### Timer interrupt with LED
+#### Set up ioc
+* Pinout View >> Choose LED channel (PD12 to PD14) >> Change it to TIM4_CHx
+* TIM4 >> Set up PWM >> ([see PWM](#pwm))
+* TIM4 >> Parameter Setting >> Set up parameter([see Timer](#timer))
+* LED will blink in the frequency that you have set.
 
 ## Timer
 
@@ -240,17 +256,19 @@ int main(void)
   <img width="440" height="64" src="https://github.com/tongplw/STM32-Embedded-System-Lab/blob/master/res/formula.jpg">
 </p>
 
-* TIMx->CNT - Clock Counter
-* TIMx->PSC - Prescaler Value
-* TIMx->ARR - Period Value
-* TIMx->CCR1 - PWM for Channel 1
+* TIMx->CNT - Clock Counter (For ioc: Clock Configuration >> APB1 Timer clocks)
+* TIMx->PSC - Prescaler Value (For ioc: TIMx >> Parameter Setting >> Prescaler)
+* TIMx->ARR - Period Value (For ioc: TIMx >> Parameter Setting >> Counter Period)
+* TIMx->CCRx - PWM for Channel x (For ioc: TIMx >> Parameter Setting >> PWM Generation Channel x >> Pulse)
+* Tips : If you set APB1 Timer clocks = 16 MHz, Prescaler = 15999, you will be able to set Counter Period and Pulse in millisec.
 
+### 
 
 ## PWM 
 **Pulse Width Modulation**
 
-* Set Clock Source > Internal Clock
-* Set Channel > PWM Generation CHX
+* TIMx >> Clock Source >> Internal Clock
+* TIMx >> Channelx >> PWM Generation CHx
 
 ```C
 // Private variable
@@ -260,7 +278,7 @@ TIM_HandleTypeDef htim4; // program generated
 HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_3);
 
 while (1) {
-	TIM4->CCR3 = myPulse;
+	TIM4->CCR3 = myPulse; // If you want to change PWM
 }
 ```
 
@@ -289,6 +307,7 @@ while (1) {
 ## Serial Communication Interface
 
 ### SPI
+**Serial Peripheral Interface Bus**
 
 * Connectivity >> SPI2
 	* For transmitter select `Transmit Only Master`
@@ -304,6 +323,7 @@ HAL_SPI_Receive(&hspi1, "a", 1, HAL_MAX_DELAY);
 ```
 
 ### I2C
+**Inter-Integrated Circuit Bus**
 
 * Connectivity >> I2C1
 	* Select `I2C`
@@ -319,9 +339,14 @@ HAL_I2C_Slave_Receive(&hi2c1, {address}, "a", 1, HAL_MAX_DELAY);
 ```
 
 ## RTOS
+**Real Time Operating System**
 
 - Read through [this link](https://os.mbed.com/handbook/CMSIS-RTOS) for additional infomation!
 - Middleware >> FREERTOS >> Interface (CMSIS_1)
+
+### RTOS Thread (Task)
+
+- Task and Queue >> Task >> Add
 
 ``` C
 ...
