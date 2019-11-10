@@ -199,12 +199,12 @@ while(1){
 ## Interrupt
 
 ### External interrupt via Button
-#### set up in ioc
+#### Set up in ioc
 * System Core >> GPIO >> GPIO tab >> PA0 >> External Interrupt Mode with your prefered edge trigger detection
 * System Core >> GPIO >> NVIC tab >> Enable EXTI line0 interrupt
 * System Core >> NVIC >> NVIC tab >> set EXTI line0 interrupt preemptive priority to higher value (Higher number means lower priotity) 
 * Note : if you can't change the priority value, change priority group to higher bits
-#### interrupt callback function
+#### Interrupt callback function
 ```c
 // Write this function in your main.c 
 // External interrupt/event controller (EXTI)
@@ -220,7 +220,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
 ```
 
 ### Timer interrupt
-#### Set Up ioc
+#### Set up ioc
 * TIMx >> Set up PWM >> ([see PWM](#pwm))
 * TIMx >> Parameter Setting >> Set up parameter([see Timer](#timer))
 * TIMx >> auto-reload preload >> Enable
@@ -243,6 +243,12 @@ int main(void)
 	while (1) { ... }
 }
 ```
+### Timer interrupt with LED
+#### Set up ioc
+* Pinout View >> Choose LED channel (PD12 to PD14) >> Change it to TIM4_CHx
+* TIM4 >> Set up PWM >> ([see PWM](#pwm))
+* TIM4 >> Parameter Setting >> Set up parameter([see Timer](#timer))
+* LED will blink in the frequency that you have set.
 
 ## Timer
 
@@ -272,7 +278,7 @@ TIM_HandleTypeDef htim4; // program generated
 HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_3);
 
 while (1) {
-	TIM4->CCR3 = myPulse;
+	TIM4->CCR3 = myPulse; // If you want to change PWM
 }
 ```
 
