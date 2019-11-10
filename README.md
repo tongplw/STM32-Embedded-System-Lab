@@ -288,7 +288,8 @@ while (1) {
 
 ## Serial Communication Interface
 
-### Serial Peripheral Interface Bus (SPI)
+### SPI
+**Serial Peripheral Interface Bus**
 
 * Connectivity >> SPI2
 	* For transmitter select `Transmit Only Master`
@@ -303,7 +304,8 @@ HAL_SPI_Transmit(&hspi1, "a", 1, HAL_MAX_DELAY);
 HAL_SPI_Receive(&hspi1, "a", 1, HAL_MAX_DELAY);
 ```
 
-### Inter-Integrated Circuit Bus (I2C)
+### I2C
+**Inter-Integrated Circuit Bus**
 
 * Connectivity >> I2C1
 	* Select `I2C`
@@ -319,6 +321,7 @@ HAL_I2C_Slave_Receive(&hi2c1, {address}, "a", 1, HAL_MAX_DELAY);
 ```
 
 ## RTOS
+**Real Time Operating System**
 
 - Read through [this link](https://os.mbed.com/handbook/CMSIS-RTOS) for additional infomation!
 - Middleware >> FREERTOS >> Interface (CMSIS_1)
