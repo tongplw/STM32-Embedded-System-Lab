@@ -139,9 +139,9 @@ if (state == 0) {
 * Another way
 ```C
 if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_0)){
-		while (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_0)) {
+	while (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_0)) {
 
-		}
+	}
 }
 ```
 
