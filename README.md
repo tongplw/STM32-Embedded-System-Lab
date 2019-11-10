@@ -323,6 +323,10 @@ HAL_I2C_Slave_Receive(&hi2c1, {address}, "a", 1, HAL_MAX_DELAY);
 - Read through [this link](https://os.mbed.com/handbook/CMSIS-RTOS) for additional infomation!
 - Middleware >> FREERTOS >> Interface (CMSIS_1)
 
+## Thread (Task)
+
+- Task and Queue >> Task >> Add
+
 ``` C
 ...
 void StartDefaultTask(void const * argument);
