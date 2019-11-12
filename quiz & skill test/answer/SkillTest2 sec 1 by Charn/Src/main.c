@@ -76,10 +76,8 @@ void StartDefaultTask(void const * argument);
 
 //skilltestskilltestskilltestskilltestskilltestskilltestskilltestskilltestskilltest
 //skilltestskilltestskilltestskilltestskilltestskilltestskilltestskilltestskilltest
-//skilltestskilltestskilltestskilltestskilltestskilltestskilltestskilltestskilltest
-//skilltestskilltestskilltestskilltestskilltestskilltestskilltestskilltestskilltest
 
-
+// for skill test 2 sec 2 - change text and time in button interrupt
 // thread for toggle LED (1)
 void blinkRed(){
 	HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_14);
@@ -118,8 +116,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pinx){
 
 //skilltestskilltestskilltestskilltestskilltestskilltestskilltestskilltestskilltest
 //skilltestskilltestskilltestskilltestskilltestskilltestskilltestskilltestskilltest
-//skilltestskilltestskilltestskilltestskilltestskilltestskilltestskilltestskilltest
-//skilltestskilltestskilltestskilltestskilltestskilltestskilltestskilltestskilltest
+
 
 /* USER CODE END 0 */
 
@@ -130,6 +127,9 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pinx){
 int main(void)
 {
   /* USER CODE BEGIN 1 */
+//skilltestskilltestskilltestskilltestskilltestskilltestskilltestskilltestskilltest
+//skilltestskilltestskilltestskilltestskilltestskilltestskilltestskilltestskilltest
+
 		osTimerDef(bR, blinkRed);
 		osTimerId bRhandle = osTimerCreate(osTimer(bR), osTimerPeriodic, NULL);
 		osTimerStart(bRhandle, 50);
@@ -141,6 +141,9 @@ int main(void)
 		osTimerDef(sp, spam);
 		osTimerId sphandle = osTimerCreate(osTimer(sp), osTimerPeriodic, NULL);
 		osTimerStart(sphandle, 1000);
+	
+//skilltestskilltestskilltestskilltestskilltestskilltestskilltestskilltestskilltest
+//skilltestskilltestskilltestskilltestskilltestskilltestskilltestskilltestskilltest
 
   /* USER CODE END 1 */
   
