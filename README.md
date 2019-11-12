@@ -196,6 +196,18 @@ while(1){
 	HAL_UART_Transmit(&huart2, &buffer, strlen(buffer), HAL_MAX_DELAY); // Transmit
 }
 ```
+**for mac user
+* Connect UART
+* Type in terminal : ls /dev/tty.*
+* Look for /dev/tty.usbserialXXXXXX and copy
+* Type in terminal : screen /dev/tty.usbserialXXXXXX 115200
+
+	*115200 is baud rate of STM32F4
+	If terminal return busy 
+		
+	* type : screen -ls
+	* kill everything by type : screen -X -S "session" kill
+
 ## Interrupt
 
 ### External interrupt via Button
