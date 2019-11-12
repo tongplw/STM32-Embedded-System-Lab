@@ -203,6 +203,7 @@ while(1){
 * Type in terminal : screen /dev/tty.usbserialXXXXXX 115200
 
 	*115200 is baud rate of STM32F4
+	
 	If terminal return busy 
 		
 	* type : screen -ls
