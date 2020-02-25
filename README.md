@@ -1,7 +1,8 @@
 # STM32-Embedded-System-Lab
 
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/tongplw/STM32-Embedded-System-Lab/master/LICENSE)
-This repository was created because the course ~~is so interesting~~ sucks.
+
+* This repository was created because the course ~~is so interesting~~ sucks.
 
 ## Table of contents
 - [STM32-Embedded-System-Lab](#stm32-embedded-system-lab)
