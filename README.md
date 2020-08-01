@@ -428,5 +428,5 @@ osSemaphoreRelease(myBinarySem01Handle);
 
 ## Acknowledgement
 
-- Thank you for all of contributors including me ([Tong](https://github.com/tongplw), [Pin](https://github.com/BackgroundBoy), [Charn](https://github.com/ctkgit) and [Terk](https://github.com/terktanac)).
+- Thank you for all of contributors including me ([Tong](https://github.com/tongplw), [Pin](https://github.com/BackgroundBoy), [Charn](https://github.com/chantmk) and [Terk](https://github.com/terktanac)).
 - Thanks to all CP44 friends for help gathering all quizes and skill-tests.
